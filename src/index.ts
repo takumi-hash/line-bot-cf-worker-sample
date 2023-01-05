@@ -30,9 +30,9 @@ app.post("/api/webhook", async (c) => {
   const { text: my_message } = event.message as TextEventMessage;
 
   try {
-    // Fetch 2 conversation from D1
+    // Fetch recent conversations from D1
     const { results }: { results: Conversation[] } = await c.env.DB.prepare(
-      `select * from conversations order by id desc limit 10`
+      `select * from conversations order by id desc limit 16`
     ).all();
     console.log(results);
 
