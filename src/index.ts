@@ -61,7 +61,7 @@ app.post("/api/webhook", async (c) => {
     if (err instanceof Error) console.error(err);
     const lineClient = new Line(c.env.CHANNEL_ACCESS_TOKEN);
     await lineClient.replyMessage(
-      "I am not feeling well right now.",
+      "Error Occured.",
       replyToken
     );
     return c.json({ message: "ng" });
