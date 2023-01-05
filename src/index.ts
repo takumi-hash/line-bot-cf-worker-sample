@@ -32,7 +32,7 @@ app.post("/api/webhook", async (c) => {
   try {
     // Fetch 2 conversation from D1
     const { results }: { results: Conversation[] } = await c.env.DB.prepare(
-      `select * from conversations order by id desc limit 2`
+      `select * from conversations order by id desc limit 10`
     ).all();
     console.log(results);
 
