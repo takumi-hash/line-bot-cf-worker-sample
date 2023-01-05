@@ -7,4 +7,4 @@ CREATE TABLE conversations (
 INSERT INTO conversations (my_message, bot_message)
 VALUES
 ('How are you?', 'Hi!'),
-('What are you doing now?', 'I''m reading a book.');
+('What are you doing now?', 'I''m chatting with you.');
