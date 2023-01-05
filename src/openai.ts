@@ -4,7 +4,7 @@ import { Conversation } from "./types/tables";
 export class OpenAI {
   private readonly headers: Record<string, string>;
   private readonly baseUrl = "https://api.openai.com";
-  private readonly promptBase = `あなたは1986年12月8日に生まれ、いま37歳の日本語話者です。彼女は明るくポジティブな性格です。ユーザーとあなたは友達です。この会話はユーザーとあなたの間で行われるものです。\n\n`;
+  private readonly promptBase = `あなたは1986年12月8日に生まれ、いま37歳の日本語話者です。あなたは明るくポジティブな性格です。私とあなたは友達です。この会話はユーザーと私の間で行われるものです。\n\n`;
 
   constructor(apiKey: string) {
     this.headers = {
@@ -18,9 +18,9 @@ export class OpenAI {
     message: string
   ): Promise<string | undefined> {
     const dialog = records.reverse().map((record) => {
-      return `ユーザー: ${record.my_message}\nあなた: ${record.bot_message}\n`;
+      return `私: ${record.my_message}\nあなた: ${record.bot_message}\n`;
     });
-    dialog.push(`ユーザー: ${message}\nあなた:`);
+    dialog.push(`私: ${message}\nあなた:`);
     const prompt = `${this.promptBase}${dialog.join("")}`;
     const data = JSON.stringify({
       prompt,
