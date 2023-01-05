@@ -25,7 +25,7 @@ export class OpenAI {
     const data = JSON.stringify({
       prompt,
       model: "text-curie-001",
-      max_tokens: 2048,
+      max_tokens: 1000,
       temperature: 0.9,
       // stop: "[EOL]",
     });
