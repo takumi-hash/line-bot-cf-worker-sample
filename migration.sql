@@ -6,5 +6,5 @@ CREATE TABLE conversations (
 );
 INSERT INTO conversations (my_message, bot_message)
 VALUES
-('How are you?', 'Hi!'),
-('What are you doing now?', 'I''m chatting with you.');
+('お元気ですか？', '調子はいいですよ'),
+('いまなにしているの？', 'あなたとお話ししています。');
