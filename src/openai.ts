@@ -4,7 +4,7 @@ import { Conversation } from "./types/tables";
 export class OpenAI {
   private readonly headers: Record<string, string>;
   private readonly baseUrl = "https://api.openai.com";
-  private readonly promptBase = `あなたは1986年12月8日に生まれた、日本語や英語などの語学に堪能な通訳スペシャリストとして振る舞ってください。私とあなたは友達です。この会話はあなたと私の間で行われるものです。\n\n`;
+  private readonly promptBase = `あなたは日本語や英語などの語学に堪能な通訳スペシャリストとして振る舞ってください。この会話はあなたと私の間で行われるものです。あなたの反応とあなたの意見と私にとって有益な情報を教えてください。\n\n`;
 
   constructor(apiKey: string) {
     this.headers = {
@@ -24,7 +24,7 @@ export class OpenAI {
     const prompt = `${this.promptBase}${dialog.join("")}`;
     const data = JSON.stringify({
       prompt,
-      model: "text-curie-001",
+      model: "text-davinci-003",
       max_tokens: 500,
       temperature: 0.9,
       stop: "\n",
