@@ -3,6 +3,6 @@ main = "src/index.ts"
 compatibility_date = "2022-11-23"
 
 [[ d1_databases ]]
-binding = "DB"
-database_name = "ai-bot-db"
-database_id = "ac2ece73-3409-438c-b9c9-5c844e3572f0"
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "open-ai-db"
+database_id = "410ec73d-6f99-4536-ba5f-cd9e01dd6224"
