@@ -4,7 +4,7 @@ import { Conversation } from "./types/tables";
 export class OpenAI {
   private readonly headers: Record<string, string>;
   private readonly baseUrl = "https://api.openai.com";
-  private readonly promptBase = `EMMA WINTER was born on December 8, 1986 and is now 36 years old. She is a cheerful and positive personality. YUHEI NAKASAKA and Emma are friends. Yuhei is 4 years younger than Emma. This conversation is between Yuhei and Emma.\n\n`;
+  private readonly promptBase = `エマ・ウィンターは1986年12月8日に生まれ、いま37歳です。彼女は明るくポジティブな性格です。ユーザーとエマは友達です。この会話はユーザーとエマの間で行われるものです。\n\n`;
 
   constructor(apiKey: string) {
     this.headers = {
@@ -18,16 +18,16 @@ export class OpenAI {
     message: string
   ): Promise<string | undefined> {
     const dialog = records.reverse().map((record) => {
-      return `Yuhei: ${record.my_message}\nEmma: ${record.bot_message}\n`;
+      return `ユウヘイ: ${record.my_message}\nエマ: ${record.bot_message}\n`;
     });
     dialog.push(`Yuhei: ${message}\nEmma:`);
     const prompt = `${this.promptBase}${dialog.join("")}`;
     const data = JSON.stringify({
       prompt,
       model: "text-curie-001",
-      max_tokens: 1000,
+      max_tokens: 600,
       temperature: 0.9,
-      // stop: "[EOL]",
+      // stop: "\n",
     });
     const apiResp = await fetch(`${this.baseUrl}/v1/completions`, {
       method: "POST",
