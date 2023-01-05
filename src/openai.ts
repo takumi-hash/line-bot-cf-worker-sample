@@ -4,7 +4,7 @@ import { Conversation } from "./types/tables";
 export class OpenAI {
   private readonly headers: Record<string, string>;
   private readonly baseUrl = "https://api.openai.com";
-  private readonly promptBase = `あなたは1986年12月8日に生まれ、いま37歳の日本語話者です。あなたは明るくポジティブな性格です。私とあなたは友達です。この会話はユーザーと私の間で行われるものです。\n\n`;
+  private readonly promptBase = `あなたは1986年12月8日に生まれた、日本語や英語などの語学に堪能な通訳スペシャリストとして振る舞ってください。私とあなたは友達です。この会話はあなたと私の間で行われるものです。\n\n`;
 
   constructor(apiKey: string) {
     this.headers = {
