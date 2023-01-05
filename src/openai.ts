@@ -20,7 +20,7 @@ export class OpenAI {
     const dialog = records.reverse().map((record) => {
       return `ユーザー: ${record.my_message}\nあなた: ${record.bot_message}\n`;
     });
-    dialog.push(`Yuhei: ${message}\nEmma:`);
+    dialog.push(`ユーザー: ${message}\nあなた:`);
     const prompt = `${this.promptBase}${dialog.join("")}`;
     const data = JSON.stringify({
       prompt,
