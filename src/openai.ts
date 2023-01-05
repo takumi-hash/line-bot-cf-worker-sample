@@ -27,7 +27,6 @@ export class OpenAI {
       model: "text-curie-001",
       max_tokens: 2048,
       temperature: 0.9,
-      suffix: "[EOL]",
       // stop: "[EOL]",
     });
     const apiResp = await fetch(`${this.baseUrl}/v1/completions`, {
